@@ -1,26 +1,28 @@
 <?php
 require_once 'dbconnect.php';
 session_start();
+//unset($_SESSION['username']);
 ?>
 <!DOCTYPE html>
 <meta charset="utf-8">
 <link rel="stylesheet" href="main.css">
 <title>Глагне</title>
-<header>
 	<div class="head">
-		<p id ="title">Бложик Ктулхи</p>
-		<div>
+		<div id ="title">Бложик Ктулхи</div>
+		<div id ="logindiv">
 		<?php if (!isset($_SESSION['username'])): ?>
 			<a href="login.php">Вход</a>
 			<a href="register.php">Регистрация</a>
 		<?php else: ?>
-		<p> <?php echo "Привет, ", $_SESSION['username']; ?><p>
-		<a href="makepost.php">Запилить пост</a>
+		<ul id = "controls">	
+		<li><?php echo "Привет, ", $_SESSION['username']; ?></li>
+		<li><a href="makepost.php">Запилить пост</a></li>
+		<li>Выход</li>			
+		</ul>
 		<?php endif ?>	
 	</div>
 	</div>
-</header>
-<body>
+<body id="index">
 	
 	 <div class="bodydiv">
 	 <?php 
@@ -32,7 +34,9 @@ session_start();
 		 <p>Текст: <br><?php echo $result[body] ?> <br></p>
 		 <p>Создано: <?php echo $result[created] ?> <br></p>
 		 <p>Пользователь: <?php echo $result[user] ?></p>
+		 <?php if (isset($_SESSION['username'])): ?>
 		 <p><a href="editpost.php?post_id=<?php echo $result[postid]?>">Править пост</a></p>
+		<?php endif ?>
 		 <p><a href="fullpost.php?post_id=<?php echo $result[postid]?>">Читать полностью</a></p>
 		</div>
 		 <?php endwhile ?>

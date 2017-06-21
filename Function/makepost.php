@@ -1,4 +1,3 @@
-<h1><a href="../makepost.php">Написать пост</a></h1>
 <?php
 require_once '../dbconnect.php';
 session_start();
@@ -11,6 +10,7 @@ $conn->exec("CREATE TABLE posts(
 	created VARCHAR(50),
 	user VARCHAR(50)
 	)");*/
+	
 $stmt = $conn->prepare("INSERT INTO posts (title, body, created, user) VALUES (:title, :body, :created, :user)");
 $title = $_POST['title'];
 $body = $_POST['postbody'];
@@ -21,3 +21,4 @@ $stmt->bindvalue(':created', $time);
 $stmt->bindvalue(':user', $_SESSION['username']);
 $stmt->execute();
 ?>
+<h1><a href="../makepost.php">Написать пост</a></h1>

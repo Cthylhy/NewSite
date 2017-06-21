@@ -1,13 +1,11 @@
 <?php
 require_once 'dbconnect.php';
 session_start();
-echo var_dump($_SESSION['username']);
 ?>
 <!DOCTYPE html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="main.css">
+
 <title>Глагне</title>
-<header>
 	<div class="head">
 		<h1>Бложик Ктулхи</h1>
 		<p><a href="index.php">Глагне</a></p>
@@ -20,7 +18,6 @@ echo var_dump($_SESSION['username']);
 		<?php endif ?>	
 	</div>
 	</div>
-	</header>
 <body>
 	
 	 <div >
@@ -38,7 +35,7 @@ echo var_dump($_SESSION['username']);
 		 <p>Пользователь: <?php echo $result[user] ?></p>		 
 		</div>
 		</div>
-		<div>
+		<div class="comment">
 			<?php
 			 $stmt = $conn->prepare('SELECT * FROM comments WHERE :postid = postid');
 			 $stmt->bindvalue(':postid', $_GET[post_id] );

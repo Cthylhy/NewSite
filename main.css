@@ -1,4 +1,52 @@
-
-.post {
+#index {
+	margin: 0;
+	background-color: #a8ffa3;
+}
+.head {
+	height: 100px;
 	border-bottom: solid;
+	margin-bottom: 15px;
+	background-color: #9aafe5;  
+}
+#logindiv {
+	float: right;
+	margin-right: 25px;
+	font-size: 20px;
+}
+#logindiv a {
+	text-decoration: none;
+	border: solid;
+	padding: 5px;
+	color: black;	
+}
+#controls {
+	list-style: none;
+	margin-top: 5px;
+}
+#controls li {
+	margin-bottom: 10px;
+
+}
+#controls li:lastchild {
+	border: solid;
+	display: block;
+}
+}
+#logindiv a:hover {
+	border-color: #9aafe5;
+}
+#title {
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+	font-size: 50px;
+}
+.post {
+	margin-left: 50px;
+	margin-bottom: 10px;
+	border: solid;
+	padding-left: 15px;
+	width: 60%;
+	background-color: white;
+
 }
